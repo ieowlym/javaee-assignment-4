@@ -14,8 +14,8 @@ public class SecondServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        //getting value from the query string
-        String n=request.getParameter("uname");
+        HttpSession session=request.getSession(false);
+        String n=(String)session.getAttribute("uname");
         out.print("Hello "+n);
 
         out.close();

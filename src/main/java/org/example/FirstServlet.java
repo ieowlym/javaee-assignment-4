@@ -17,8 +17,10 @@ public class FirstServlet extends HttpServlet {
             String n=request.getParameter("userName");
             out.print("Welcome "+n);
 
-            //appending the username in the query string
-            out.print("<br><a href='servlet2?uname="+n+"'>visit</a>");
+            HttpSession session=request.getSession();
+            session.setAttribute("uname",n);
+
+            out.print("<br><a href='servlet2'>visit</a>");
 
             out.close();
 
