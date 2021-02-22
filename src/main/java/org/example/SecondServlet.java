@@ -5,22 +5,18 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet(value = "/servlet2")
+@WebServlet(value = "/hidden-form-field-in-session-tracking/servlet2")
 public class SecondServlet extends HttpServlet {
-
     public void doGet(HttpServletRequest request, HttpServletResponse response){
         try{
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-            response.setContentType("text/html");
-            PrintWriter out = response.getWriter();
+        //Getting the value from the hidden field
+        String n=request.getParameter("uname");
+        out.print("Hello "+n);
 
-            Cookie ck[]=request.getCookies();
-            out.print("Hello "+ck[0].getValue());
-
-            out.close();
-
-        }catch(Exception e){System.out.println(e);}
-    }
-
-
+        out.close();
+    }catch(Exception e){System.out.println(e);}
+}
 }
