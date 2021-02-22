@@ -2,11 +2,13 @@ package org.example;
 
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+@WebServlet(value = "/servlet2")
 public class SecondServlet extends HttpServlet {
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response){
+    public void doGet(HttpServletRequest request, HttpServletResponse response){
         try{
 
             response.setContentType("text/html");

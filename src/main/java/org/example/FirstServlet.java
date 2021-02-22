@@ -2,9 +2,11 @@ package org.example;
 
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-public class FirstServlet extends HttpServlet  {
+@WebServlet(value = "/servlet1")
+public class FirstServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response){
         try{
